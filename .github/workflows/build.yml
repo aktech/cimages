@@ -1,0 +1,30 @@
+name: Build Image
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+
+      - name: Install dependencies
+        run: |
+          ./scripts/install_dependencies.sh
+
+      - name: Create Image
+        run: |
+          ./scripts/provision_ubuntu2004_qemu.sh
+
+      - id: 'upload-file'
+        uses: 'google-github-actions/upload-cloud-storage@v0'
+        with:
+          path: '/tmp/ubuntuqemuboot/images/focal-server-cloudimg-amd64.img'
+          destination: 'cirun/images/'
