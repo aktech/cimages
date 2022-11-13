@@ -60,14 +60,14 @@ runcmd:
     DEBIAN_FRONTEND=noninteractive sudo apt upgrade -y
     DEBIAN_FRONTEND=noninteractive sudo apt install nvidia-driver-460 -y
     echo "Nvidia Drivers Installed!"
-    echo "========================="
-    echo "Installing Docker"
-    echo "========================="
-    curl -fsSL https://get.docker.com -o get-docker.sh
-    DEBIAN_FRONTEND=noninteractive sudo sh get-docker.sh
-    echo "Enable docker"
-    echo "========================="
-    sudo systemctl --now enable docker
+    #echo "========================="
+    #echo "Installing Docker"
+    #echo "========================="
+    #curl -fsSL https://get.docker.com -o get-docker.sh
+    #DEBIAN_FRONTEND=noninteractive sudo sh get-docker.sh
+    #echo "Enable docker"
+    #echo "========================="
+    #sudo systemctl --now enable docker
     echo "Distribution: $DISTRIBUTION"
     echo "========================="
     curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
@@ -77,12 +77,12 @@ runcmd:
     echo "APT Update"
     echo "========================="
     DEBIAN_FRONTEND=noninteractive sudo apt-get update
-    echo "Install nvidia-docker2"
-    echo "========================="
-    DEBIAN_FRONTEND=noninteractive sudo apt-get install -y nvidia-docker2
-    echo "Restart docker"
-    echo "========================="
-    DEBIAN_FRONTEND=noninteractive sudo systemctl restart docker
+    #echo "Install nvidia-docker2"
+    #echo "========================="
+    #DEBIAN_FRONTEND=noninteractive sudo apt-get install -y nvidia-docker2
+    #echo "Restart docker"
+    #echo "========================="
+    #DEBIAN_FRONTEND=noninteractive sudo systemctl restart docker
     echo "Shutdown machine"
     sudo shutdown now
     echo "========================="
