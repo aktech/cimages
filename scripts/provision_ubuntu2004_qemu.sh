@@ -2,8 +2,8 @@
 
 TEMP_DIR=/tmp/ubuntu-qemu-boot
 IMAGE_DIR=$TEMP_DIR/images
-CLOUD_IMAGE_URL=https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img
-IMAGE_NAME=focal-server-cloudimg-amd64.img
+CLOUD_IMAGE_URL=https://cloud-images.ubuntu.com/minimal/releases/focal/release/ubuntu-20.04-minimal-cloudimg-amd64.img
+IMAGE_NAME=ubuntu-20.04-minimal-cloudimg-amd64.img
 CLOUDINIT_DIR=$TEMP_DIR/cloudinitmetadata
 DISTRIBUTION=ubuntu20.04
 
