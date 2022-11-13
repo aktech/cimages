@@ -52,6 +52,10 @@ users:
     group: sudo
 runcmd:
   - |
+    echo "========================="
+    echo "Adding Nameservers"
+    echo "========================="
+    sudo echo nameserver 8.8.8.8 > etc/resolv.conf
     echo "Installing Nvidia Drivers"
     echo "========================="
     echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
